@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Email and Phone Validation</title>
+<script>
+function validateForm() {
+  let email = document.getElementById("email").value;
+  let phone = document.getElementById("phone").value;
+
+  // Standard e-mail format: name@domain.com
+  let emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+  // Exactly 10 digits
+  let phonePattern = /^[0-9]{10}$/;
+
+  // Validate E-mail
+  if (!emailPattern.test(email)) {
+    alert("Please enter a valid E-mail ID.");
+    return false;
+  }
+  // Validate Phone Number
+  if (!phonePattern.test(phone)) {
+    alert("Phone number must contain exactly 10 digits.");
+    return false;
+  }
+  alert("E-mail and Phone Number are valid!");
+  return true;
+}
+</script>
+</head>
+
+<body>
+<h2>E-mail and Phone Number Validation</h2>
+<p>Ankur Maurya (Uni. Roll No: 2501920110081)</p>
+<form onsubmit="return validateForm()">
+  <label>E-mail ID:</label>
+  <input type="text" id="email"> <br><br>
+  <label>Phone Number:</label>
+  <input type="text" id="phone"> <br><br>
+  <input type="submit" value="Submit">
+</form>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Form Validation</title>
+<script>
+function validateForm() {
+  let name = document.getElementById("name").value;
+  let password = document.getElementById("password").value;
+
+  // Name: alphabets only (spaces allowed between words) and minimum 6 characters
+  let namePattern = /^[A-Za-z][A-Za-z ]{5,}$/;
+  // Password: minimum 6 characters
+  let passwordPattern = /^.{6,}$/;
+
+  if (!namePattern.test(name)) {
+    alert("Name must contain alphabets only and minimum 6 characters.");
+    return false;
+  }
+  if (!passwordPattern.test(password)) {
+    alert("Password must be minimum 6 characters long.");
+    return false;
+  }
+  alert("Form submitted successfully!");
+  return true;
+}
+</script>
+</head>
+
+<body>
+<h2>Name and Password Validation</h2>
+<p>Ankur Maurya (Uni. Roll No: 2501920110081)</p>
+<form onsubmit="return validateForm()">
+  <label>Name:</label>
+  <input type="text" id="name">
+  <br><br>
+  <label>Password:</label>
+  <input type="password" id="password">
+  <br><br>
+  <input type="submit" value="Submit">
+</form>
+</body>
+</html>
